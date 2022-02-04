@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChnageBG</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        button{
+            background-color:black;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: none;
+            border: none;
+            padding: 13px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            transition: all .5s;
+         }
+         button:hover{
+             color: black;
+         }
+         button:before{
+			width: 100%;
+			height: 100%;
+			content: '';
+			margin: auto;
+			position: absolute;
+			top:  -100%;
+			left: -100%;
+			background: #ffffff;
+			transition: all .5s;
+			z-index: -1;
+			
+		}
+        button:hover:before{			
+			top: 0;
+			left: 0;
+	}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+    <button id="btn">Click me</button>
+</div>
+    <script>
+        const button = document.querySelector("button")
+        const body = document.querySelector("body");
+        const color = ['linear-gradient(to right, red,black,green,yellow)', 'linear-gradient(to left, black,yellow,voilet,pink)', 'linear-gradient(to buttom, yellow,pink,black,green,"#787878")', 'linear-gradient(pink,green,white,yellow,red)', 'linear-gradient(to right, green,red,yellow,black,green)']
+
+        body.style.backgroundImage = 'linear-gradient(black,red,yellow,pink,green)'
+
+        button.addEventListener('click', (changBG)=>{
+        colorindex = parseInt(Math.random()*color.length);
+            body.style.backgroundImage = color[colorindex];
+
+        });
+
+    </script>
+</body>
+</html>
